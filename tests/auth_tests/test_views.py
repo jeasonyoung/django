@@ -1215,6 +1215,7 @@ class ChangelistTests(AuthViewsTestCase):
         response = self.client.get(reverse('auth_test_admin:auth_user_password_change', args=('foobar',)))
         self.assertEqual(response.status_code, 404)
 
+<<<<<<< HEAD
     @mock.patch('django.contrib.auth.admin.UserAdmin.has_change_permission')
     def test_user_change_password_passes_user_to_has_change_permission(self, has_change_permission):
         url = reverse('auth_test_admin:auth_user_password_change', args=(self.admin.pk,))
@@ -1222,6 +1223,8 @@ class ChangelistTests(AuthViewsTestCase):
         (_request, user), _kwargs = has_change_permission.call_args
         self.assertEqual(user.pk, self.admin.pk)
 
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
     def test_view_user_password_is_readonly(self):
         u = User.objects.get(username='testclient')
         u.is_superuser = False

@@ -905,6 +905,22 @@ class MakeMigrationsTests(MigrationTestBase):
             call_command("makemigrations", merge=True, stdout=out)
         self.assertIn("No conflicts detected to merge.", out.getvalue())
 
+<<<<<<< HEAD
+=======
+    def test_makemigrations_no_app_sys_exit(self):
+        """makemigrations exits if a nonexistent app is specified."""
+        err = io.StringIO()
+        with self.assertRaises(SystemExit):
+            call_command("makemigrations", "this_app_does_not_exist", stderr=err)
+        self.assertIn("'this_app_does_not_exist' could not be found.", err.getvalue())
+
+    def test_makemigrations_app_name_with_dots(self):
+        err = io.StringIO()
+        with self.assertRaises(SystemExit):
+            call_command('makemigrations', 'invalid.app.label', stderr=err)
+        self.assertIn("'invalid.app.label' is not a valid app label. Did you mean 'label'?", err.getvalue())
+
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
     def test_makemigrations_empty_no_app_specified(self):
         """
         makemigrations exits if no app is specified with 'empty' mode.

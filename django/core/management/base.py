@@ -95,7 +95,11 @@ class DjangoHelpFormatter(HelpFormatter):
     """
     show_last = {
         '--version', '--verbosity', '--traceback', '--settings', '--pythonpath',
+<<<<<<< HEAD
         '--no-color', '--force-color',
+=======
+        '--no-color',
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
     }
 
     def _reordered_actions(self, actions):
@@ -282,10 +286,13 @@ class BaseCommand:
             '--no-color', action='store_true',
             help="Don't colorize the command output.",
         )
+<<<<<<< HEAD
         parser.add_argument(
             '--force-color', action='store_true',
             help='Force colorization of the command output.',
         )
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
         self.add_arguments(parser)
         return parser
 

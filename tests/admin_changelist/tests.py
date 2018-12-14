@@ -16,7 +16,11 @@ from django.db.models.lookups import Contains, Exact
 from django.template import Context, Template, TemplateSyntaxError
 from django.test import TestCase, override_settings
 from django.test.client import RequestFactory
+<<<<<<< HEAD
 from django.test.utils import CaptureQueriesContext, register_lookup
+=======
+from django.test.utils import CaptureQueriesContext
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 from django.urls import reverse
 from django.utils import formats
 

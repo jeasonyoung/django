@@ -91,9 +91,15 @@ class DatabaseFeatures(BaseDatabaseFeatures):
 
     @cached_property
     def has_select_for_update_skip_locked(self):
+<<<<<<< HEAD
         return not self.connection.mysql_is_mariadb and self.connection.mysql_version >= (8, 0, 1)
 
     has_select_for_update_nowait = property(operator.attrgetter('has_select_for_update_skip_locked'))
+=======
+        return self.connection.mysql_version >= (8, 0, 1)
+
+    has_select_for_update_nowait = has_select_for_update_skip_locked
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 
     @cached_property
     def needs_explain_extended(self):

@@ -797,7 +797,11 @@ answer newbie questions, and generally made Django that much better:
     Stephen Burrows <stephen.r.burrows@gmail.com>
     Steven L. Smith (fvox13) <steven@stevenlsmith.com>
     Steven Noorbergen (Xaroth) <xaroth+django@xaroth.nl>
+<<<<<<< HEAD
     Stuart Langridge <https://www.kryogenix.org/>
+=======
+    Stuart Langridge <http://www.kryogenix.org/>
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
     Subhav Gautam <subhavgautam@yahoo.co.uk>
     Sujay S Kumar <sujay.skumar141295@gmail.com>
     Sune Kirkeby <https://ibofobi.dk/>

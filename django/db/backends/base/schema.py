@@ -1001,6 +1001,7 @@ class BaseDatabaseSchemaEditor:
             suffix,
             create_fk_name,
         )
+<<<<<<< HEAD
         column = Columns(model._meta.db_table, [field.column], self.quote_name)
         to_table = Table(field.target_field.model._meta.db_table, self.quote_name)
         to_column = Columns(field.target_field.model._meta.db_table, [field.target_field.column], self.quote_name)
@@ -1011,6 +1012,18 @@ class BaseDatabaseSchemaEditor:
             to_table=to_table,
             to_column=to_column,
             deferrable=deferrable,
+=======
+
+    def _create_unique_sql(self, model, columns):
+        def create_unique_name(*args, **kwargs):
+            return self.quote_name(self._create_index_name(*args, **kwargs))
+        table = model._meta.db_table
+        return Statement(
+            self.sql_create_unique,
+            table=Table(table, self.quote_name),
+            name=IndexName(table, columns, '_uniq', create_unique_name),
+            columns=Columns(table, columns, self.quote_name),
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
         )
         return self._create_constraint_sql(table, name, constraint)
 

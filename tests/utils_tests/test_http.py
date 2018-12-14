@@ -277,10 +277,13 @@ class HttpDateProcessingTests(unittest.TestCase):
         parsed = parse_http_date('Sun Nov  6 08:49:37 1994')
         self.assertEqual(datetime.utcfromtimestamp(parsed), datetime(1994, 11, 6, 8, 49, 37))
 
+<<<<<<< HEAD
     def test_parsing_year_less_than_70(self):
         parsed = parse_http_date('Sun Nov  6 08:49:37 0050')
         self.assertEqual(datetime.utcfromtimestamp(parsed), datetime(2050, 11, 6, 8, 49, 37))
 
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 
 class EscapeLeadingSlashesTests(unittest.TestCase):
     def test(self):

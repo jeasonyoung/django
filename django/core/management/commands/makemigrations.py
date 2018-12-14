@@ -71,10 +71,26 @@ class Command(BaseCommand):
         for app_label in app_labels:
             try:
                 apps.get_app_config(app_label)
+<<<<<<< HEAD
             except LookupError as err:
                 self.stderr.write(str(err))
                 has_bad_labels = True
         if has_bad_labels:
+=======
+            except LookupError:
+                bad_app_labels.add(app_label)
+        if bad_app_labels:
+            for app_label in bad_app_labels:
+                if '.' in app_label:
+                    self.stderr.write(
+                        "'%s' is not a valid app label. Did you mean '%s'?" % (
+                            app_label,
+                            app_label.split('.')[-1],
+                        )
+                    )
+                else:
+                    self.stderr.write("App '%s' could not be found. Is it in INSTALLED_APPS?" % app_label)
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
             sys.exit(2)
 
         # Load the current graph state. Pass in None for the connection so

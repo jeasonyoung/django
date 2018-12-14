@@ -55,7 +55,10 @@ class DatabaseFeatures(BaseDatabaseFeatures):
     supports_over_clause = True
     supports_ignore_conflicts = False
     max_query_params = 2**16 - 1
+<<<<<<< HEAD
     supports_partial_indexes = False
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 
     @cached_property
     def has_fetch_offset_support(self):
@@ -64,7 +67,10 @@ class DatabaseFeatures(BaseDatabaseFeatures):
     @cached_property
     def allow_sliced_subqueries_with_in(self):
         return self.has_fetch_offset_support
+<<<<<<< HEAD
 
     @cached_property
     def supports_slicing_ordering_in_compound(self):
         return self.has_fetch_offset_support
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2

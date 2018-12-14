@@ -1412,6 +1412,7 @@ class ActionsCheckTests(CheckTestCase):
             'custom_permission_action action.',
             id='admin.E129',
         )
+<<<<<<< HEAD
 
     def test_actions_not_unique(self):
         def action(modeladmin, request, queryset):
@@ -1439,3 +1440,5 @@ class ActionsCheckTests(CheckTestCase):
             actions = (action1, action2)
 
         self.assertIsValid(BandAdmin, Band)
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2

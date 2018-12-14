@@ -429,6 +429,7 @@ class SQLCompiler:
                         *self.query.values_select,
                         *self.query.annotation_select,
                     ))
+<<<<<<< HEAD
                 part_sql, part_args = compiler.as_sql()
                 if compiler.query.combinator:
                     # Wrap in a subquery if wrapping in parentheses isn't
@@ -440,6 +441,9 @@ class SQLCompiler:
                     elif not features.supports_slicing_ordering_in_compound:
                         part_sql = '({})'.format(part_sql)
                 parts += ((part_sql, part_args),)
+=======
+                parts += (compiler.as_sql(),)
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
             except EmptyResultSet:
                 # Omit the empty queryset with UNION and with DIFFERENCE if the
                 # first queryset is nonempty.

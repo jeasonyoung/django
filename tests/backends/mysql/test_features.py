@@ -22,13 +22,19 @@ class TestFeatures(TestCase):
     def test_skip_locked_no_wait(self):
         with mock.MagicMock() as _connection:
             _connection.mysql_version = (8, 0, 1)
+<<<<<<< HEAD
             _connection.mysql_is_mariadb = False
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
             database_features = DatabaseFeatures(_connection)
             self.assertTrue(database_features.has_select_for_update_skip_locked)
             self.assertTrue(database_features.has_select_for_update_nowait)
         with mock.MagicMock() as _connection:
             _connection.mysql_version = (8, 0, 0)
+<<<<<<< HEAD
             _connection.mysql_is_mariadb = False
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
             database_features = DatabaseFeatures(_connection)
             self.assertFalse(database_features.has_select_for_update_skip_locked)
             self.assertFalse(database_features.has_select_for_update_nowait)

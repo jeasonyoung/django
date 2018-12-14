@@ -201,13 +201,21 @@ class TestCollectionVerbosity(CollectionTestCase):
         self.assertIn(self.staticfiles_copied_msg, output)
         self.assertIn(self.copying_msg, output)
 
+<<<<<<< HEAD
     @override_settings(STATICFILES_STORAGE='django.contrib.staticfiles.storage.ManifestStaticFilesStorage')
+=======
+    @override_settings(STATICFILES_STORAGE='django.contrib.staticfiles.storage.CachedStaticFilesStorage')
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
     def test_verbosity_1_with_post_process(self):
         stdout = StringIO()
         self.run_collectstatic(verbosity=1, stdout=stdout, post_process=True)
         self.assertNotIn(self.post_process_msg, stdout.getvalue())
 
+<<<<<<< HEAD
     @override_settings(STATICFILES_STORAGE='django.contrib.staticfiles.storage.ManifestStaticFilesStorage')
+=======
+    @override_settings(STATICFILES_STORAGE='django.contrib.staticfiles.storage.CachedStaticFilesStorage')
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
     def test_verbosity_2_with_post_process(self):
         stdout = StringIO()
         self.run_collectstatic(verbosity=2, stdout=stdout, post_process=True)

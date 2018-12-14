@@ -5,7 +5,11 @@ Timezone-related classes and functions.
 import functools
 import warnings
 from contextlib import ContextDecorator
+<<<<<<< HEAD
 from datetime import datetime, timedelta, timezone, tzinfo
+=======
+from datetime import datetime, timedelta, tzinfo
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 from threading import local
 
 import pytz

@@ -733,7 +733,11 @@ the fully qualified name into parts and then tries the following lookup:
    setting the current application on the :attr:`request.current_app
    <django.http.HttpRequest.current_app>` attribute.
 
+<<<<<<< HEAD
 #. If there is no current application, Django looks for a default
+=======
+3. If there is no current application, Django looks for a default
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
    application instance. The default application instance is the instance
    that has an :term:`instance namespace` matching the :term:`application
    namespace` (in this example, an instance of ``polls`` called ``'polls'``).

@@ -672,6 +672,7 @@ class ManyToOneTests(TestCase):
         child = ToFieldChild.objects.create(parent=parent)
         with self.assertNumQueries(0):
             self.assertIs(child.parent, parent)
+<<<<<<< HEAD
 
     def test_reverse_foreign_key_instance_to_field_caching(self):
         parent = Parent.objects.create(name='a')
@@ -679,3 +680,5 @@ class ManyToOneTests(TestCase):
         child = parent.to_field_children.get()
         with self.assertNumQueries(0):
             self.assertIs(child.parent, parent)
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2

@@ -85,6 +85,7 @@ class SimplifiedURLTests(SimpleTestCase):
                 self.assertEqual(match.url_name, url_name)
                 self.assertEqual(match.app_name, app_name)
                 self.assertEqual(match.kwargs, kwargs)
+<<<<<<< HEAD
 
     @override_settings(ROOT_URLCONF='urlpatterns.path_base64_urls')
     def test_converter_reverse(self):
@@ -101,6 +102,17 @@ class SimplifiedURLTests(SimpleTestCase):
         kwargs['last_value'] = b'world'
         url = reverse('instance-ns-base64:subsubpattern-base64', kwargs=kwargs)
         self.assertEqual(url, '/base64/aGVsbG8=/subpatterns/d29ybGQ=/d29ybGQ=/')
+=======
+
+    @override_settings(ROOT_URLCONF='urlpatterns.path_base64_urls')
+    def test_converter_reverse(self):
+        for expected, (url_name, app_name, kwargs) in converter_test_data:
+            if app_name:
+                url_name = '%s:%s' % (app_name, url_name)
+            with self.subTest(url=url_name):
+                url = reverse(url_name, kwargs=kwargs)
+                self.assertEqual(url, expected)
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 
     def test_path_inclusion_is_matchable(self):
         match = resolve('/included_urls/extra/something/')

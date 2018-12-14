@@ -381,7 +381,11 @@ Function                              PostGIS  Oracle          MySQL        Spat
 :class:`Centroid`                     X        X               X            X
 :class:`Difference`                   X        X               X            X
 :class:`Distance`                     X        X               X            X
+<<<<<<< HEAD
 :class:`Envelope`                     X        X               X            X
+=======
+:class:`Envelope`                     X                        X            X
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 :class:`ForcePolygonCW`               X                                     X
 :class:`ForceRHR`                     X
 :class:`GeoHash`                      X                        X (≥ 5.7.5)  X (LWGEOM)

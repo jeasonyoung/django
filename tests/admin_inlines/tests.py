@@ -601,8 +601,14 @@ class TestInlinePermissions(TestCase):
         author_book_auto_m2m_intermediate = Author.books.through.objects.get(author=author, book=book)
         cls.author_book_auto_m2m_intermediate_id = author_book_auto_m2m_intermediate.pk
 
+<<<<<<< HEAD
         cls.holder = Holder2.objects.create(dummy=13)
         cls.inner2 = Inner2.objects.create(dummy=42, holder=cls.holder)
+=======
+        holder = Holder2.objects.create(dummy=13)
+        self.inner2 = Inner2.objects.create(dummy=42, holder=holder)
+        self.holder_change_url = reverse('admin:admin_inlines_holder2_change', args=(holder.id,))
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 
     def setUp(self):
         self.holder_change_url = reverse('admin:admin_inlines_holder2_change', args=(self.holder.id,))
@@ -725,7 +731,11 @@ class TestInlinePermissions(TestCase):
             html=True
         )
         # TabularInline
+<<<<<<< HEAD
         self.assertContains(response, '<th class="column-dummy required">Dummy</th>', html=True)
+=======
+        self.assertContains(response, '<th class="required">Dummy</th>', html=True)
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
         self.assertContains(
             response,
             '<input type="number" name="inner2_set-2-0-dummy" value="%s" '
@@ -796,7 +806,11 @@ class TestInlinePermissions(TestCase):
         )
         self.assertContains(response, 'id="id_inner2_set-0-DELETE"')
         # TabularInline
+<<<<<<< HEAD
         self.assertContains(response, '<th class="column-dummy required">Dummy</th>', html=True)
+=======
+        self.assertContains(response, '<th class="required">Dummy</th>', html=True)
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
         self.assertContains(
             response,
             '<input type="number" name="inner2_set-2-0-dummy" value="%s" '

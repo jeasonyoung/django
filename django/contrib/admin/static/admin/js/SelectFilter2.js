@@ -166,7 +166,17 @@ Requires jQuery, core.js, and SelectBox.js.
                 // In horizontal mode, give the same height to the two boxes.
                 var j_from_box = $('#' + field_id + '_from');
                 var j_to_box = $('#' + field_id + '_to');
+<<<<<<< HEAD
                 j_to_box.height($(filter_p).outerHeight() + j_from_box.outerHeight());
+=======
+                var resize_filters = function() { j_to_box.height($(filter_p).outerHeight() + j_from_box.outerHeight()); };
+                if (j_from_box.outerHeight() > 0) {
+                    resize_filters(); // This fieldset is already open. Resize now.
+                } else {
+                    // This fieldset is probably collapsed. Wait for its 'show' event.
+                    j_to_box.closest('fieldset').one('show.fieldset', resize_filters);
+                }
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
             }
 
             // Initial icon refresh

@@ -55,6 +55,7 @@ class AdminActionsTests(TestCase):
                 mock_request.user = user
                 actions = ma.get_actions(mock_request)
                 self.assertEqual(list(actions.keys()), expected)
+<<<<<<< HEAD
 
     def test_actions_inheritance(self):
         class AdminBase(admin.ModelAdmin):
@@ -76,3 +77,5 @@ class AdminActionsTests(TestCase):
         ma2 = AdminB(Band, admin.AdminSite())
         action_names = [name for _, name, _ in ma2._get_base_actions()]
         self.assertEqual(action_names, ['delete_selected'])
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2

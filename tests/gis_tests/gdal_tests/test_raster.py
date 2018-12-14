@@ -278,6 +278,16 @@ class GDALRasterTests(SimpleTestCase):
         self.assertEqual(result, [0] * 4)
 
     def test_raster_metadata_property(self):
+<<<<<<< HEAD
+=======
+        # Check for required gdal version.
+        if GDAL_VERSION < (1, 11):
+            msg = 'GDAL ≥ 1.11 is required for using the metadata property.'
+            with self.assertRaisesMessage(ValueError, msg):
+                self.rs.metadata
+            return
+
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
         data = self.rs.metadata
         self.assertEqual(data['DEFAULT'], {'AREA_OR_POINT': 'Area'})
         self.assertEqual(data['IMAGE_STRUCTURE'], {'INTERLEAVE': 'BAND'})

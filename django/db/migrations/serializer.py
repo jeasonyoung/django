@@ -56,6 +56,12 @@ class DatetimeDatetimeSerializer(BaseSerializer):
     def serialize(self):
         if self.value.tzinfo is not None and self.value.tzinfo != utc:
             self.value = self.value.astimezone(utc)
+<<<<<<< HEAD
+=======
+        value_repr = repr(self.value).replace("<UTC>", "utc")
+        if isinstance(self.value, datetime_safe.datetime):
+            value_repr = "datetime.%s" % value_repr
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
         imports = ["import datetime"]
         if self.value.tzinfo is not None:
             imports.append("from django.utils.timezone import utc")

@@ -885,6 +885,8 @@ failed to be inserted.
 
 .. method:: cache.delete(key, version=None)
 
+.. method:: cache.delete(key, version=None)
+
 You can delete keys explicitly with ``delete()``. This is an easy way of
 clearing the cache for a particular object::
 

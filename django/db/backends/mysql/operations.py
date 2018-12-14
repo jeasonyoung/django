@@ -141,10 +141,14 @@ class DatabaseOperations(BaseDatabaseOperations):
         # With MySQLdb, cursor objects have an (undocumented) "_executed"
         # attribute where the exact query sent to the database is saved.
         # See MySQLdb/cursors.py in the source distribution.
+<<<<<<< HEAD
         query = getattr(cursor, '_executed', None)
         if query is not None:
             query = query.decode(errors='replace')
         return query
+=======
+        return force_text(getattr(cursor, '_executed', None), errors='replace')
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
 
     def no_limit_value(self):
         # 2**64 - 1, as recommended by the MySQL documentation
@@ -301,6 +305,9 @@ class DatabaseOperations(BaseDatabaseOperations):
 
         match_option = 'c' if lookup_type == 'regex' else 'i'
         return "REGEXP_LIKE(%%s, %%s, '%s')" % match_option
+<<<<<<< HEAD
 
     def insert_statement(self, ignore_conflicts=False):
         return 'INSERT IGNORE INTO' if ignore_conflicts else super().insert_statement(ignore_conflicts)
+=======
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2

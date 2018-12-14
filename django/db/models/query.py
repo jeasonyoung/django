@@ -553,10 +553,16 @@ class QuerySet:
             try:
                 obj = self.select_for_update().get(**kwargs)
             except self.model.DoesNotExist:
+<<<<<<< HEAD
                 params = self._extract_model_params(defaults, **kwargs)
                 # Lock the row so that a concurrent update is blocked until
                 # after update_or_create() has performed its save.
                 obj, created = self._create_object_from_params(kwargs, params, lock=True)
+=======
+                # Lock the row so that a concurrent update is blocked until
+                # after update_or_create() has performed its save.
+                obj, created = self._create_object_from_params(lookup, params, lock=True)
+>>>>>>> 8d741bd88fa6bd14327f6fa791017d0773b41cf2
                 if created:
                     return obj, created
             for k, v in defaults.items():

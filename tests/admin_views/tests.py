@@ -1874,6 +1874,33 @@ class AdminViewPermissionsTest(TestCase):
         self.assertRedirects(response, changelist_url)
         self.assertEqual(Article.objects.get(pk=self.a1.pk).content, '<p>Middle content</p>')
 
+    def test_change_view_without_object_change_permission(self):
+        """
+        The object should be read-only if the user has permission to view it
+        and change objects of that type but not to change the current object.
+        """
+        change_url = reverse('admin9:admin_views_article_change', args=(self.a1.pk,))
+        self.client.force_login(self.viewuser)
+        response = self.client.get(change_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['title'], 'View article')
+        self.assertContains(response, '<a href="/test_admin/admin9/admin_views/article/" class="closelink">Close</a>')
+
+    def test_change_view_post_without_object_change_permission(self):
+        """A POST redirectS to changelist without modifications."""
+        change_dict = {
+            'title': 'Ikke fordømt',
+            'content': '<p>edited article</p>',
+            'date_0': '2008-03-18', 'date_1': '10:54:39',
+            'section': self.s1.pk,
+        }
+        change_url = reverse('admin10:admin_views_article_change', args=(self.a1.pk,))
+        changelist_url = reverse('admin10:admin_views_article_changelist')
+        self.client.force_login(self.viewuser)
+        response = self.client.post(change_url, change_dict)
+        self.assertRedirects(response, changelist_url)
+        self.assertEqual(Article.objects.get(pk=self.a1.pk).content, '<p>Middle content</p>')
+
     def test_change_view_save_as_new(self):
         """
         'Save as new' should raise PermissionDenied for users without the 'add'
